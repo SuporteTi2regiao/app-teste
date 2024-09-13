@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Expor a porta 8080 para permitir acesso ao serviço
-EXPOSE 443
+EXPOSE 3001
 
 # Comando para iniciar o aplicativo
 CMD ["npm","run" ,"start"]

@@ -4,6 +4,6 @@ services:
   app:
     build: .
     ports:
-      - "443:443"
+      - "3001:3001"
     environment:
       NODE_ENV: development
