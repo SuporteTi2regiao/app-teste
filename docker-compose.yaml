@@ -3,11 +3,11 @@ version: "3"
 services:
   sala-do-tesouro:
     build:
-      context: ./sala-do-tesouro
-      dockerfile: ./Dockerfile
+      context: ./
+      dockerfile: Dockerfile
     restart: always
     ports:
-      - 3000
+      - 3001
     networks:
       - dokploy-network
     labels:
@@ -15,7 +15,7 @@ services:
       - "traefik.http.routers.appsaladotesouro-app-1ba73f.rule=Host(`deploy.saladotesouro.com.br`)"
       - "traefik.http.routers.appsaladotesouro-app-1ba73f.entrypoints=websecure"
       - "traefik.http.routers.appsaladotesouro-app-1ba73f.tls.certResolver=letsencrypt"
-      - "traefik.http.services.appsaladotesouro-app-1ba73f.loadbalancer.server.port=3000"
+      - "traefik.http.services.appsaladotesouro-app-1ba73f.loadbalancer.server.port=3001"
 networks:
   dokploy-network:
     external: true
