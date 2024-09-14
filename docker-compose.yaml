@@ -3,7 +3,7 @@ version: "3"
 services:
   sala-do-tesouro:
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
     restart: always
     ports:
