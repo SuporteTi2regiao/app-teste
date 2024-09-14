@@ -1,9 +1,21 @@
-version: '3.8'
-
+version: "3"
+ 
 services:
-  app:
-    build: .
+  sala-do-tesouro:
+    build:
+      context: ./sala-do-tesouro
+      dockerfile: Dockerfile
+    restart: always
     ports:
-      - "3001:3001"
-    environment:
-      NODE_ENV: development
+      - 3000
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.appsaladotesouro-app-1ba73f.rule=Host(`deploy.saladotesouro.com.br`)"
+      - "traefik.http.routers.appsaladotesouro-app-1ba73f.entrypoints=websecure"
+      - "traefik.http.routers.appsaladotesouro-app-1ba73f.tls.certResolver=letsencrypt"
+      - "traefik.http.services.appsaladotesouro-app-1ba73f.loadbalancer.server.port=3000"
+networks:
+  dokploy-network:
+    external: true
