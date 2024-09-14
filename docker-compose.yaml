@@ -4,7 +4,7 @@ services:
   sala-do-tesouro:
     build:
       context: ./sala-do-tesouro
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
     restart: always
     ports:
       - 3000
